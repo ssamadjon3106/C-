@@ -1,24 +1,24 @@
-
-
-#ifndef Character_h
-#define Character_h
+#ifndef CHARACTER_H
+#define CHARACTER_H
 
 #include <string>
-using std::string;
+
 class Character {
-_______:
-    string name;
+protected:
+    std::string name;
     int health;
     int attackPower;
-    
-public:
-    Character(const string& name, int health, int attackPower);
-    string getName();
-    int getHealth();
-    virtual void attack(Character& target) = 0;
-    virtual void displayStatus() const = 0;
+    int level;
 
+public:
+    Character(const std::string& name, int health, int attackPower);
+    std::string getName() const;
+    int getHealth() const;
     bool isAlive() const;
     void takeDamage(int amount);
+    virtual void attack(Character& target) = 0; // Pure virtual function
+    virtual void displayStatus() const = 0; // Pure virtual function
 };
-#endif /* Character_h */
+
+#endif // CHARACTER_H
+

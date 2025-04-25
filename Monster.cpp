@@ -1,20 +1,23 @@
-//
-//  Monster.cpp
-//  battle
-//
-//  Created by Yuliya Durova on 22/04/25.
-//
 #include "Monster.h"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
-using std::cout;
-Monster::Monster(const string& type){}
+
+Monster::Monster(const std::string& name)
+    : Character(name, 100, 5) {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    attackPower = 5 + std::rand() % 11; // Random attack power between 5 and 15
+}
 
 void Monster::attack(Character& target) {
-    cout << name << " claws at " << target.getName() << " for " << attackPower << " damage!\n";
-    ____;
+    int damage = attackPower + (level * 2);
+    std::cout << "[Monster] " << name << " claws at " << target.getName()
+              << " for " << damage << " damage!" << std::endl;
+    target.takeDamage(damage);
 }
 
 void Monster::displayStatus() const {
-    ____;
+    std::cout << "[Monster] " << name << " | HP: " << health << " | Level: " << level << std::endl;
 }
+
 

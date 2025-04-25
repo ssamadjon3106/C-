@@ -1,22 +1,14 @@
-//
-//  Monster.h
-//  battle
-//
-//  Created by Yuliya Durova on 22/04/25.
-//
-
-#ifndef Monster_h
-#define Monster_h
+#ifndef MONSTER_H
+#define MONSTER_H
 
 #include "Character.h"
 
 class Monster : public Character {
 public:
-    Monster(const std::string& type);
+    Monster(const std::string& name); // Constructor to initialize a Monster
 
-    void attack(Character& target) override;
-    void displayStatus() const override;
+    void attack(Character& target) override; // Attack function for Monster
+    void displayStatus() const override; // Display Monster status
 };
 
-
-#endif /* Monster_h */
+#endif // MONSTER_H

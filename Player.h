@@ -1,28 +1,15 @@
-//
-//  player.h
-//  battle
-//
-//  Created by Yuliya Durova on 22/04/25.
-//
-
-#ifndef player_h
-#define player_h
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "Character.h"
 
 class Player : public Character {
-private:
-    int level;
-
 public:
-    Player(const std::string& name);
+    Player(const std::string& name); // Constructor to initialize a Player
 
-    void attack(Character& target) override;
-    void displayStatus() const override;
-
-    void levelUp();
-    int getLevel();
+    void attack(Character& target) override; // Attack function for Player
+    void displayStatus() const override; // Display Player status
+    void levelUp(); // Level up Player
 };
 
-
-#endif /* player_h */
+#endif // PLAYER_H

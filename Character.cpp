@@ -1,20 +1,24 @@
-
 #include "Character.h"
 #include <iostream>
 
-Character::Character(const string& name, int health, int attackPower)
-     {}
+Character::Character(const std::string& name, int health, int attackPower)
+    : name(name), health(health), attackPower(attackPower), level(1) {}
+
+std::string Character::getName() const {
+    return name;
+}
+
+int Character::getHealth() const {
+    return health;
+}
 
 bool Character::isAlive() const {
-    return ____;
+    return health > 0;
 }
-string Character::getName(){
-    return ____;
-}
-int Character::getHealth(){
-    return ____;
-}
+
 void Character::takeDamage(int amount) {
-    _____;
+    health -= amount;
     if (health < 0) health = 0;
 }
+
+
